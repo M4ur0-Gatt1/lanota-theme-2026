@@ -3513,6 +3513,33 @@ if (!function_exists('nm_render_mi_cuenta_button')) {
     }
 }
 
+// ===== Migrate options from old theme (news_media_*) =====
+function lanota_2026_migrate_old_options() {
+    if (get_option('lanota_2026_options_migrated')) return;
+
+    $map = array(
+        'news_media_paywall_url'   => 'lanota_2026_paywall_url',
+        'news_media_facebook_url'  => 'lanota_2026_facebook_url',
+        'news_media_twitter_url'   => 'lanota_2026_twitter_url',
+        'news_media_instagram_url' => 'lanota_2026_instagram_url',
+        'news_media_youtube_url'   => 'lanota_2026_youtube_url',
+        'news_media_tiktok_url'    => 'lanota_2026_tiktok_url',
+        'news_media_logo_default'  => 'lanota_2026_logo_default',
+        'news_media_logo_dark'     => 'lanota_2026_logo_dark',
+        'news_media_primary_color' => 'lanota_2026_primary_color',
+    );
+
+    foreach ($map as $old => $new) {
+        $val = get_option($old);
+        if ($val && !get_option($new)) {
+            update_option($new, $val);
+        }
+    }
+
+    update_option('lanota_2026_options_migrated', true);
+}
+add_action('after_setup_theme', 'lanota_2026_migrate_old_options');
+
 // ===== Subscribe with Google (SwG) — disable auto-popup =====
 
 // Remove the Reader Revenue Manager plugin's auto-popup script.
@@ -3529,7 +3556,7 @@ function nm_swg_manual_init() {
             src="https://news.google.com/swg/js/v1/swg.js"></script>
     <script>
     (self.SWG = self.SWG || []).push(function(subscriptions) {
-        subscriptions.init("CAoiEGy6YkUcqDvzWHARFduvqcQ:openaccess");
+        subscriptions.init("CAoiEGy6YkUcqDvzWHARFduvqcQ");
     });
     </script>
     <?php
