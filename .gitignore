@@ -1,0 +1,62 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.log
+*.lock
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Node / Front-end
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Build outputs
+/dist/
+/build/
+/.cache/
+.cache-loader/
+coverage/
+releases/
+
+# Composer / PHP
+vendor/
+composer.lock
+composer.phar
+
+# WordPress specific (outside core)
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/debug.log
+
+# Source maps
+*.map
+
+# Logs
+logs/
+
+# Env / Secrets
+.env
+.env.local
+*.env.*
+
+# OS metadata
+Desktop.ini
+$RECYCLE.BIN/
+
+# Misc
+*.iml
+*.sublime-*

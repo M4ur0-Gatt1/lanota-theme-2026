@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e151d"/>
+      <stop offset="100%" stop-color="#141d28"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <g transform="translate(100, 120)">
+    <rect x="0" y="0" width="220" height="760" rx="18" fill="#121a24" stroke="#233142" stroke-width="2"/>
+    <rect x="260" y="0" width="840" height="760" rx="18" fill="#121a24" stroke="#233142" stroke-width="2"/>
+  </g>
+
+  <g font-family="Poppins, Arial, sans-serif" fill="#ffffff" text-anchor="start">
+    <text x="100" y="110" font-size="42" font-weight="900">La Nota Theme</text>
+    <text x="100" y="160" font-size="20" opacity="0.85">host.tropacirca.com</text>
+  </g>
+
+  <g transform="translate(340, 270)">
+    <rect x="0" y="0" width="520" height="280" rx="14" fill="#192734" stroke="#2a3b4c" stroke-width="2"/>
+    <text x="26" y="56" font-size="28" font-family="Poppins, Arial, sans-serif" fill="#ffffff" font-weight="700">Agenda Cultural</text>
+    <rect x="26" y="86" width="138" height="40" rx="20" fill="#e53935"/>
+    <text x="44" y="112" font-size="16" font-family="Poppins, Arial, sans-serif" fill="#ffffff" font-weight="700">Semana</text>
+    <rect x="174" y="86" width="96" height="40" rx="20" fill="#243243"/>
+    <text x="204" y="112" font-size="16" font-family="Poppins, Arial, sans-serif" fill="#9fb0c0">Mes</text>
+    <rect x="282" y="86" width="114" height="40" rx="20" fill="#243243"/>
+    <text x="314" y="112" font-size="16" font-family="Poppins, Arial, sans-serif" fill="#9fb0c0">Todos</text>
+  </g>
+
+  <g transform="translate(380, 590)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="#223041"/>
+    <rect x="240" y="0" width="220" height="160" rx="12" fill="#223041"/>
+    <rect x="480" y="0" width="220" height="160" rx="12" fill="#223041"/>
+  </g>
+
+  <g font-family="Poppins, Arial, sans-serif" fill="#9fb0c0" text-anchor="start">
+    <text x="100" y="830" font-size="16">Author: Mauro Gatti • Text Domain: la-nota-theme</text>
+  </g>
+</svg>

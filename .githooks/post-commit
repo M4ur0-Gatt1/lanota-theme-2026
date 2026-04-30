@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Post-commit hook: package the WordPress theme as a versioned zip
+# Tries PowerShell Core (pwsh) first, then Windows PowerShell
+
+if command -v pwsh >/dev/null 2>&1; then
+  pwsh -NoProfile -ExecutionPolicy Bypass -File "scripts/package-theme.ps1"
+else
+  powershell -NoProfile -ExecutionPolicy Bypass -File "scripts/package-theme.ps1"
+fi
