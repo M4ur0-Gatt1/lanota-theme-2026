@@ -14,21 +14,8 @@ Template Name: Paywall / Suscripción
       </header>
 
       <div class="post-content">
-        <!-- Subscribe with Google (Basic) -->
-        <script async type="application/javascript"
-                src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
-        <script>
-          (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
-            basicSubscriptions.init({
-              type: "NewsArticle",
-              isPartOfType: ["Product"],
-              isPartOfProductId: "CAoiEGy6YkUcqDvzWHARFduvqcQ:openaccess",
-              clientOptions: { theme: "light", lang: "es-419" },
-            });
-          });
-        </script>
-
         <p>Si ya estás suscripto, iniciá sesión con tu cuenta de Google cuando se te solicite.</p>
+        <a href="#" class="subscribe-btn btn-subscribe-swg" style="display:inline-block;background:#e53935;color:#fff;padding:12px 28px;border-radius:4px;text-decoration:none;font-weight:bold;font-size:16px;margin-top:16px;">Suscribite con Google</a>
       </div>
     </article>
   </div>

@@ -3549,21 +3549,29 @@ function nm_swg_disable_auto_prompt() {
 }
 add_action('wp_enqueue_scripts', 'nm_swg_disable_auto_prompt', 999);
 
-// Load the full SWG library with manual control (no auto-popup).
+// Load SWG Basic (same library the RRM plugin uses) with auto-prompt disabled.
 function nm_swg_manual_init() {
     ?>
-    <script async subscriptions-control="manual"
-            src="https://news.google.com/swg/js/v1/swg.js"></script>
+    <script async
+            src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
     <script>
-    (self.SWG = self.SWG || []).push(function(subscriptions) {
-        subscriptions.init("CAoiEGy6YkUcqDvzWHARFduvqcQ");
+    var _nmSwgBasic = null;
+    (self.SWG_BASIC = self.SWG_BASIC || []).push(function(basicSubscriptions) {
+        basicSubscriptions.init({
+            type: "NewsArticle",
+            isPartOfType: ["Product"],
+            isPartOfProductId: "CAoiEGy6YkUcqDvzWHARFduvqcQ:openaccess",
+            autoPromptType: "none",
+            clientOptions: {theme: "light", lang: "es-AR"}
+        });
+        _nmSwgBasic = basicSubscriptions;
     });
     </script>
     <?php
 }
 add_action('wp_head', 'nm_swg_manual_init', 99);
 
-// Open SWG offers modal when clicking any .subscribe-btn
+// Open SWG subscription prompt when clicking any .subscribe-btn
 function nm_swg_subscribe_click_handler() {
     ?>
     <script>
@@ -3571,9 +3579,12 @@ function nm_swg_subscribe_click_handler() {
         document.querySelectorAll('.subscribe-btn, .btn-subscribe-swg').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                (self.SWG = self.SWG || []).push(function(subscriptions) {
-                    subscriptions.showOffers({ isClosable: true });
-                });
+                if (_nmSwgBasic) {
+                    _nmSwgBasic.setupAndShowAutoPrompt({
+                        autoPromptType: 'subscription_large',
+                        alwaysShow: true
+                    });
+                }
             });
         });
     });
